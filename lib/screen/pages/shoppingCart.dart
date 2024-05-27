@@ -22,7 +22,7 @@ class _ShoppingcartState extends State<Shoppingcart> {
         centerTitle: true,
         backgroundColor: Color(0xff80C7F7),
       ),
-      backgroundColor: Color.fromARGB(255, 222, 238, 250),
+      backgroundColor: Color.fromARGB(140, 243, 250, 255),
     );
   }
 }

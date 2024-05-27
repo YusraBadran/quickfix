@@ -55,7 +55,9 @@ class _WelcomescreenState extends State<Welcomescreen> {
                     },
                     shape: RoundedRectangleBorder(
                       side: BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(60),
+                          topRight: Radius.circular(60)),
                     ),
                     child: Text(
                       "Login",
@@ -74,9 +76,11 @@ class _WelcomescreenState extends State<Welcomescreen> {
                           MaterialPageRoute(
                               builder: (context) => SignUpPage()));
                     },
-                    color: Color.fromARGB(255, 10, 112, 180),
+                    color: Color(0xff80C7F7),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(60),
+                          topRight: Radius.circular(60)),
                     ),
                     child: Text(
                       "Sign Up",

@@ -15,7 +15,7 @@ class _HomescreenState extends State<Homescreen> {
   // final navigationKey = GlobalKey<CurvedNavigationBarState>();
   final items = const [
     Icon(
-      Icons.settings,
+      Icons.menu,
       size: 35,
       color: Color.fromARGB(255, 10, 112, 180),
     ),
@@ -34,7 +34,7 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 244, 244, 245),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       bottomNavigationBar: CurvedNavigationBar(
           height: 60,
           buttonBackgroundColor: Color.fromARGB(255, 255, 255, 255),

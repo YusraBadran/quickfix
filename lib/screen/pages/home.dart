@@ -47,8 +47,9 @@ class _HomeState extends State<Home> {
         ),
         centerTitle: true,
         backgroundColor: Color(0xff80C7F7),
+        elevation: 3.0,
       ),
-      backgroundColor: Color.fromARGB(255, 222, 238, 250),
+      backgroundColor: Color.fromARGB(140, 243, 250, 255),
       body: SingleChildScrollView(
         child: Column(
           children: [
