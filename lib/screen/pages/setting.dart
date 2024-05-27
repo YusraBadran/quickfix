@@ -51,7 +51,7 @@ class _SettingState extends State<Setting> {
       backgroundColor: Color.fromARGB(140, 243, 250, 255),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.only(left: 25, right: 25),
+          padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
           child: Column(
             children: [
               SizedBox(

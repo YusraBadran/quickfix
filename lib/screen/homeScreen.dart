@@ -15,12 +15,12 @@ class _HomescreenState extends State<Homescreen> {
   // final navigationKey = GlobalKey<CurvedNavigationBarState>();
   final items = const [
     Icon(
-      Icons.menu,
+      Icons.miscellaneous_services_sharp,
       size: 35,
       color: Color.fromARGB(255, 10, 112, 180),
     ),
     Icon(
-      Icons.home,
+      Icons.home_outlined,
       size: 35,
       color: Color.fromARGB(255, 10, 112, 180),
     ),
