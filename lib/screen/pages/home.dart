@@ -20,18 +20,18 @@ class _HomeState extends State<Home> {
       borderRadius: BorderRadius.circular(30.0),
       child: Image.asset("assets/images/autoImage1.JPG"),
     ),
-    ClipRRect(
-      borderRadius: BorderRadius.circular(30.0),
-      child: Image.asset("assets/images/autoImage3.JPG"),
-    ),
+    // ClipRRect(
+    //   borderRadius: BorderRadius.circular(30.0),
+    //   child: Image.asset("assets/images/autoImage3.JPG"),
+    // ),
     ClipRRect(
       borderRadius: BorderRadius.circular(30.0),
       child: Image.asset("assets/images/autoImage2.JPG"),
     ),
-    ClipRRect(
-      borderRadius: BorderRadius.circular(30.0),
-      child: Image.asset("assets/images/autoImage4.JPG"),
-    ),
+    // ClipRRect(
+    //   borderRadius: BorderRadius.circular(30.0),
+    //   child: Image.asset("assets/images/autoImage4.JPG"),
+    // ),
   ];
 
   int myCurrentIndex = 0;
@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
                   Cprice: "\$ 200",
                   CassetPath: "assets/images/testS.png",
                 ),
-                // ServiesType(),
+                ServiesType(),
                 Servicemap(
                   label: "Maintenance",
                   label2: "Centers",

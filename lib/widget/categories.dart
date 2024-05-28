@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:quickfix/screen/categoriesItemScreen.dart';
 import 'package:quickfix/screen/detailsScreen.dart';
+import 'package:quickfix/widget/categoriesItem.dart';
 
 class Categories extends StatelessWidget {
   const Categories({this.CassetPath, this.Cname, this.Cprice});
@@ -20,11 +22,12 @@ class Categories extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Detailsscreen(
-                                DassetPath: CassetPath,
-                                Dname: Cname,
-                                Dprice: Cprice,
-                              )));
+                          builder: (context) => CategoriesitemScreen()));
+                  // builder: (context) => Detailsscreen(
+                  //       DassetPath: CassetPath,
+                  //       Dname: Cname,
+                  //       Dprice: Cprice,
+                  //     )));
                 },
                 child: Container(
                   padding: EdgeInsets.all(0),
@@ -38,7 +41,7 @@ class Categories extends StatelessWidget {
                         color:
                             Color.fromARGB(255, 10, 112, 180).withOpacity(0.2),
                         spreadRadius: 1,
-                        blurRadius: 2,
+                        blurRadius: 1,
                       )
                     ],
                   ),
@@ -49,8 +52,8 @@ class Categories extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.only(top: 20),
                           child: Image.asset(
-                            CassetPath,
-                            // "assets/images/testS.png",
+                            // CassetPath,
+                            "assets/images/testS.png",
                             height: 90,
                             width: 90,
                           ),

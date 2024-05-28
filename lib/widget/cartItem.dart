@@ -18,7 +18,7 @@ class cartItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                  color: Color.fromARGB(255, 10, 112, 180).withOpacity(0.5),
+                  color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 1,
                   blurRadius: 1,
                 )

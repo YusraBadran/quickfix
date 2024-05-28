@@ -1,9 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:quickfix/screen/detailsScreen.dart';
 
-import 'package:quickfix/widget/categories.dart';
-
-class ServiesType extends StatelessWidget {
-  const ServiesType({super.key});
+class Categoriesitem extends StatelessWidget {
+  const Categoriesitem({this.UassetPath, this.Uname, this.Uprice});
+  final UassetPath, Uname, Uprice;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,15 @@ class ServiesType extends StatelessWidget {
             for (int i = 0; i < 2; i++)
               GestureDetector(
                 // Wrap the Container in a GestureDetector
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Detailsscreen()));
+                  // builder: (context) => Detailsscreen(
+                  // DassetPath:
+                  // Dname: Uname,
+                  // Dprice: Uprice,
+                  //     )));
+                },
 
                 child: Container(
                   padding: EdgeInsets.all(0),
@@ -30,7 +40,7 @@ class ServiesType extends StatelessWidget {
                         color:
                             Color.fromARGB(255, 10, 112, 180).withOpacity(0.2),
                         spreadRadius: 1,
-                        blurRadius: 2,
+                        blurRadius: 1,
                       )
                     ],
                   ),
@@ -41,7 +51,8 @@ class ServiesType extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.only(top: 20),
                           child: Image.asset(
-                            "assets/images/testS.png",
+                            UassetPath,
+                            // "assets/images/testS.png",
                             height: 90,
                             width: 90,
                           ),
@@ -49,7 +60,17 @@ class ServiesType extends StatelessWidget {
                       ),
                       Container(
                         child: Text(
-                          "Service Name",
+                          Uname,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Text(
+                          Uprice,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
