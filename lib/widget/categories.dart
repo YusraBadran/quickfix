@@ -54,8 +54,8 @@ class Categories extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.only(top: 20),
                           child: Image.asset(
-                            CassetPath,
-                            // "assets/images/testS.png",
+                            // CassetPath,
+                            "assets/images/testS.png",
                             height: 90,
                             width: 90,
                           ),

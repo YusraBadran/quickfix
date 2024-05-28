@@ -33,10 +33,10 @@ class CategoriesitemScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Categoriesitem(
-                    // name: "yusra badran",
-                    // Cprice: "\$ 200",
-                    // CassetPath: "assets/images/testS.png",
-                    ),
+                  Uname: "yusra badran",
+                  Uprice: "\$ 200",
+                  UassetPath: "assets/images/testS.png",
+                ),
               ),
             ],
           ),

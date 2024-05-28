@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:quickfix/screen/detailsScreen.dart';
 
 class Categoriesitem extends StatelessWidget {
-  const Categoriesitem({super.key});
+  const Categoriesitem({this.UassetPath, this.Uname, this.Uprice});
+  final UassetPath, Uname, Uprice;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +22,9 @@ class Categoriesitem extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Detailsscreen()));
                   // builder: (context) => Detailsscreen(
-                  //       DassetPath: CassetPath,
-                  //       Dname: Cname,
-                  //       Dprice: Cprice,
+                  // DassetPath:
+                  // Dname: Uname,
+                  // Dprice: Uprice,
                   //     )));
                 },
 
@@ -50,8 +51,8 @@ class Categoriesitem extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.only(top: 20),
                           child: Image.asset(
-                            // CassetPath,
-                            "assets/images/testS.png",
+                            UassetPath,
+                            // "assets/images/testS.png",
                             height: 90,
                             width: 90,
                           ),
@@ -59,7 +60,7 @@ class Categoriesitem extends StatelessWidget {
                       ),
                       Container(
                         child: Text(
-                          "name",
+                          Uname,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
@@ -69,7 +70,7 @@ class Categoriesitem extends StatelessWidget {
                       ),
                       Container(
                         child: Text(
-                          "Cprice",
+                          Uprice,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,

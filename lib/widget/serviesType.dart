@@ -17,10 +17,7 @@ class ServiesType extends StatelessWidget {
             for (int i = 0; i < 2; i++)
               GestureDetector(
                 // Wrap the Container in a GestureDetector
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Categories()));
-                },
+
                 child: Container(
                   padding: EdgeInsets.all(0),
                   margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
