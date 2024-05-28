@@ -36,6 +36,7 @@ class RegisterController extends GetxController {
       print(error);
       print(error.response);
       print(error.response['data']);
+      Get.snackbar("Error", error.response['data']['message']);
     }, (success) {
       print(success.data);
       dynamic data = success.data['data'];

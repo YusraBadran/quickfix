@@ -16,7 +16,6 @@ class Categories extends StatelessWidget {
           children: [
             for (int i = 0; i < 2; i++)
               GestureDetector(
-                // Wrap the Container in a GestureDetector
                 onTap: () {
                   Navigator.push(
                       context,
@@ -27,7 +26,6 @@ class Categories extends StatelessWidget {
                                 Dprice: Cprice,
                               )));
                 },
-
                 child: Container(
                   padding: EdgeInsets.all(0),
                   margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),

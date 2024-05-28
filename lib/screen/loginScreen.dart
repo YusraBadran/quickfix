@@ -96,7 +96,7 @@ class LoginPage extends StatelessWidget {
                         // loginController.onSubmit();
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Homescreen()),
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
                         );
                       },
                     ),

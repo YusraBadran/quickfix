@@ -3,4 +3,5 @@ class ApiUrls {
   static const String baseImageUrl = "https://10.0.2.2:7228/";
   static const String loginApiUrl = "${baseUrl}identity/login/v1";
   static const String registerApiUrl = "${baseUrl}user/register/v1";
+  static const String serviceTypeApiUrl = "${baseUrl}service_type/get_all/v1";
 }

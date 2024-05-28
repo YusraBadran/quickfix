@@ -1,22 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quickfix/api/api_urls.dart';
 import 'package:quickfix/api/client/client.dart';
 import 'package:quickfix/api/request_model.dart';
 
-class LoginController extends GetxController {
-  final TextEditingController userNameEmailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
-  onSubmit() async {
+class HomeController extends GetxController {
+  onGetService() async {
     var response = await Client.callApi(
-      apiUrl: ApiUrls.loginApiUrl,
-      requestType: RequestTypes.post,
-      requestBody: {
-        "userNameOrEmail": userNameEmailController.text,
-        "password": passwordController.text,
-        "remember": true,
-      },
+      apiUrl: ApiUrls.serviceTypeApiUrl,
+      requestType: RequestTypes.get,
     );
     response.fold((error) {
       print(error);

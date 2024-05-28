@@ -1,18 +1,19 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:quickfix/controller/home_controler.dart';
 import 'package:quickfix/screen/pages/home.dart';
 import 'package:quickfix/screen/pages/setting.dart';
 import 'package:quickfix/screen/pages/shoppingCart.dart';
 
-class Homescreen extends StatefulWidget {
-  const Homescreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<Homescreen> createState() => _HomescreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomescreenState extends State<Homescreen> {
-  // final navigationKey = GlobalKey<CurvedNavigationBarState>();
+class _HomeScreenState extends State<HomeScreen> {
+  final HomeController homeController = HomeController();
   final items = const [
     Icon(
       Icons.miscellaneous_services_sharp,

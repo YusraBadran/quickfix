@@ -25,14 +25,8 @@ class Servicemap extends StatelessWidget {
           crossAxisCount: 2,
           shrinkWrap: true,
           children: [
-            // for (int i = 0; i < 1; i++)
             GestureDetector(
               onTap: onPress,
-              // Wrap the Container in a GestureDetector
-              // onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => Detailsscreen()));
-              // },
               child: Container(
                 padding: EdgeInsets.all(0),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
@@ -56,7 +50,6 @@ class Servicemap extends StatelessWidget {
                         margin: EdgeInsets.only(top: 20, bottom: 2),
                         child: Image.asset(
                           image,
-                          // "assets/images/testS.png",
                           height: 90,
                           width: 90,
                         ),

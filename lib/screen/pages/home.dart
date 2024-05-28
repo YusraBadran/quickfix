@@ -39,11 +39,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: IconButton(
-        //   icon: Icon(Icons.arrow_back,
-        //       color: Colors.white), // Change the color as needed
-        //   onPressed: () => Navigator.of(context).pop(),
-        // ),
         automaticallyImplyLeading: false,
         title: Text(
           "HOME",
@@ -77,10 +72,6 @@ class _HomeState extends State<Home> {
                           });
                         }),
                     items: myItems),
-                // SizedBox(
-                //   height: 5,
-                // ),
-
                 Column(
                   children: [
                     Container(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quickfix/widget/button1.dart';
-import 'package:quickfix/widget/inputfile.dart';
 
 class Updateprofilescreen extends StatelessWidget {
   const Updateprofilescreen({super.key});
