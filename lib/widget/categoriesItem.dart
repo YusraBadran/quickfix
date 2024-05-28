@@ -1,12 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:quickfix/screen/categoriesItemScreen.dart';
 import 'package:quickfix/screen/detailsScreen.dart';
-import 'package:quickfix/widget/categoriesItem.dart';
 
-class Categories extends StatelessWidget {
-  const Categories({this.CassetPath, this.Cname, this.Cprice});
-  final CassetPath, Cname, Cprice;
+class Categoriesitem extends StatelessWidget {
+  const Categoriesitem({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,10 +18,8 @@ class Categories extends StatelessWidget {
               GestureDetector(
                 // Wrap the Container in a GestureDetector
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CategoriesitemScreen()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Detailsscreen()));
                   // builder: (context) => Detailsscreen(
                   //       DassetPath: CassetPath,
                   //       Dname: Cname,
@@ -54,8 +50,8 @@ class Categories extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.only(top: 20),
                           child: Image.asset(
-                            CassetPath,
-                            // "assets/images/testS.png",
+                            // CassetPath,
+                            "assets/images/testS.png",
                             height: 90,
                             width: 90,
                           ),
@@ -63,7 +59,7 @@ class Categories extends StatelessWidget {
                       ),
                       Container(
                         child: Text(
-                          Cname,
+                          "name",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
@@ -73,7 +69,7 @@ class Categories extends StatelessWidget {
                       ),
                       Container(
                         child: Text(
-                          Cprice,
+                          "Cprice",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,

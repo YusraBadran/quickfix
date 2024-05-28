@@ -102,10 +102,10 @@ class _SettingState extends State<Setting> {
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 10),
-              Text(
-                "About US",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-              ),
+              // Text(
+              //   "About US",
+              //   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+              // ),
               const SizedBox(height: 10),
               profileMenuWidget(
                 title: "Call Us",
@@ -121,11 +121,11 @@ class _SettingState extends State<Setting> {
                   launchWhatsApp(number: "+967777914188", message: "Hello");
                 },
               ),
-              const Divider(),
-              Text(
-                "About App",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-              ),
+              // const Divider(),
+              // Text(
+              //   "About App",
+              //   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+              // ),
               profileMenuWidget(
                 title: "Terms & Conditions",
                 icon: Icons.gavel,
@@ -140,6 +140,7 @@ class _SettingState extends State<Setting> {
                   _openPolicy();
                 },
               ),
+              const SizedBox(height: 20),
               const Divider(),
               profileMenuWidget(
                 title: "Log Out ",

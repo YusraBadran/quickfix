@@ -21,7 +21,7 @@ class Button1 extends StatelessWidget {
       minWidth: double.infinity,
       height: 45,
       onPressed: onPress,
-      color: Color.fromARGB(255, 10, 112, 180),
+      color: Colors.blue,
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
