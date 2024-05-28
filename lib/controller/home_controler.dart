@@ -16,7 +16,7 @@ class HomeController extends GetxController {
       Get.snackbar("Error", error.response['data']['message']);
     }, (success) {
       print(success.data);
-      dynamic data = success.data['data'];
+      dynamic data = success.data['serviceType'];
       print(data);
     });
   }
