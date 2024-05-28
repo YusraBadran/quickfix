@@ -22,7 +22,7 @@ class Updateprofilescreen extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
-          backgroundColor: Color(0xff80C7F7),
+          backgroundColor: Color.fromARGB(255, 10, 112, 180),
         ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -43,31 +43,31 @@ class Updateprofilescreen extends StatelessWidget {
               ),
               Column(
                 children: <Widget>[
-                  Inputfile(
-                    label: "First Name",
-                    hintText: "Enter your user name",
-                    icon: Icons.person,
-                  ),
-                  Inputfile(
-                    label: "Last Name",
-                    hintText: "Enter your user name",
-                    icon: Icons.person,
-                  ),
-                  Inputfile(
-                    label: "Username",
-                    hintText: "Enter your user name",
-                    icon: Icons.person,
-                  ),
-                  Inputfile(
-                    label: "Phone Number",
-                    hintText: "Enter your first name",
-                    icon: Icons.phone,
-                  ),
-                  Inputfile(
-                    label: "Email",
-                    hintText: "Enter your email",
-                    icon: Icons.email,
-                  ),
+                  // Inputfile(
+                  //   label: "First Name",
+                  //   hintText: "Enter your user name",
+                  //   icon: Icons.person,
+                  // ),
+                  // Inputfile(
+                  //   label: "Last Name",
+                  //   hintText: "Enter your user name",
+                  //   icon: Icons.person,
+                  // ),
+                  // Inputfile(
+                  //   label: "Username",
+                  //   hintText: "Enter your user name",
+                  //   icon: Icons.person,
+                  // ),
+                  // Inputfile(
+                  //   label: "Phone Number",
+                  //   hintText: "Enter your first name",
+                  //   icon: Icons.phone,
+                  // ),
+                  // Inputfile(
+                  //   label: "Email",
+                  //   hintText: "Enter your email",
+                  //   icon: Icons.email,
+                  // ),
                   // Inputfile(
                   //   label: "Password",
                   //   obscureText: true,

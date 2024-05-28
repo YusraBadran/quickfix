@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:quickfix/controller/register_controller.dart';
 import 'package:quickfix/screen/loginScreen.dart';
 import 'package:quickfix/widget/button1.dart';
 import 'package:quickfix/widget/inputfile.dart';
 
 class SignUpPage extends StatelessWidget {
+  RegisterController registerController = Get.put(RegisterController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,37 +66,44 @@ class SignUpPage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Inputfile(
+                    controller: registerController.firstNameController,
                     label: "First Name",
                     hintText: "Enter your user name",
                     icon: Icons.person,
                   ),
                   Inputfile(
+                    controller: registerController.lastNameController,
                     label: "Last Name",
                     hintText: "Enter your user name",
                     icon: Icons.person,
                   ),
                   Inputfile(
+                    controller: registerController.userNameController,
                     label: "Username",
                     hintText: "Enter your user name",
                     icon: Icons.person,
                   ),
                   Inputfile(
+                    controller: registerController.phoneNumberController,
                     label: "Phone Number",
                     hintText: "Enter your first name",
                     icon: Icons.phone,
                   ),
                   Inputfile(
+                    controller: registerController.emailController,
                     label: "Email",
                     hintText: "Enter your email",
                     icon: Icons.email,
                   ),
                   Inputfile(
+                    controller: registerController.passwordController,
                     label: "Password",
                     obscureText: true,
                     hintText: "Enter your password",
                     icon: Icons.password,
                   ),
                   Inputfile(
+                    controller: registerController.passwordConfirmController,
                     label: "Confirm Password ",
                     obscureText: true,
                     hintText: "Enter your confirm password",
@@ -116,8 +126,9 @@ class SignUpPage extends StatelessWidget {
                 child: Button1(
                   title: "Sign up",
                   onPress: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginPage()));
+                    registerController.onSubmit();
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),

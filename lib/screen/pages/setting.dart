@@ -46,7 +46,7 @@ class _SettingState extends State<Setting> {
               fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Color(0xff80C7F7),
+        backgroundColor: Color.fromARGB(255, 10, 112, 180),
       ),
       backgroundColor: Color.fromARGB(140, 243, 250, 255),
       body: SingleChildScrollView(

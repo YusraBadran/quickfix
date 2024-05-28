@@ -1,10 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:quickfix/screen/detailsScreen.dart';
 
-import 'package:quickfix/widget/categories.dart';
-
-class ServiesType extends StatelessWidget {
-  const ServiesType({super.key});
-
+class Categories extends StatelessWidget {
+  const Categories({this.CassetPath, this.Cname, this.Cprice});
+  final CassetPath, Cname, Cprice;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -18,9 +18,16 @@ class ServiesType extends StatelessWidget {
               GestureDetector(
                 // Wrap the Container in a GestureDetector
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Categories()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Detailsscreen(
+                                DassetPath: CassetPath,
+                                Dname: Cname,
+                                Dprice: Cprice,
+                              )));
                 },
+
                 child: Container(
                   padding: EdgeInsets.all(0),
                   margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
@@ -44,7 +51,8 @@ class ServiesType extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.only(top: 20),
                           child: Image.asset(
-                            "assets/images/testS.png",
+                            CassetPath,
+                            // "assets/images/testS.png",
                             height: 90,
                             width: 90,
                           ),
@@ -52,7 +60,17 @@ class ServiesType extends StatelessWidget {
                       ),
                       Container(
                         child: Text(
-                          "Service Name",
+                          Cname,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Text(
+                          Cprice,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,

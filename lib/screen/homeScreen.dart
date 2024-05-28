@@ -38,7 +38,7 @@ class _HomescreenState extends State<Homescreen> {
       bottomNavigationBar: CurvedNavigationBar(
           height: 60,
           buttonBackgroundColor: Color.fromARGB(255, 255, 255, 255),
-          backgroundColor: Color(0xff80C7F7),
+          backgroundColor: Color.fromARGB(255, 10, 112, 180),
           items: items,
           index: index,
           onTap: (selctedIndex) {

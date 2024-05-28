@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quickfix/widget/CartBottomNavBar.dart';
+import 'package:quickfix/widget/cartItem.dart';
 
 class Shoppingcart extends StatefulWidget {
   const Shoppingcart({super.key});
@@ -20,9 +22,25 @@ class _ShoppingcartState extends State<Shoppingcart> {
               fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Color(0xff80C7F7),
+        backgroundColor: Color.fromARGB(255, 10, 112, 180),
       ),
       backgroundColor: Color.fromARGB(140, 243, 250, 255),
+      body: ListView(
+        children: [
+          Container(
+            child: Column(
+              children: [
+                cartItem(),
+                // Container(
+                //   decoration:
+                //       BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                // )
+              ],
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: CartBottomNavBar(),
     );
   }
 }

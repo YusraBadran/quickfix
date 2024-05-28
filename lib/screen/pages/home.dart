@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:quickfix/screen/MCenters.dart';
+import 'package:quickfix/screen/SCenters.dart';
+import 'package:quickfix/screen/detailsScreen.dart';
+import 'package:quickfix/widget/categories.dart';
+import 'package:quickfix/widget/serviceMap.dart';
 import 'package:quickfix/widget/serviesType.dart';
 
 class Home extends StatefulWidget {
@@ -47,53 +52,79 @@ class _HomeState extends State<Home> {
               fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Color(0xff80C7F7),
+        backgroundColor: Color.fromARGB(255, 10, 112, 180),
         elevation: 3.0,
       ),
       backgroundColor: Color.fromARGB(140, 243, 250, 255),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
-          child: Column(
-            children: [
-              CarouselSlider(
-                  options: CarouselOptions(
-                      autoPlay: true,
-                      height: 190,
-                      // autoPlayCurve: Curve.fastOutSlowIn,
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
-                      autoPlayInterval: const Duration(seconds: 2),
-                      enlargeCenterPage: true,
-                      aspectRatio: 2.0,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          myCurrentIndex = index;
-                        });
-                      }),
-                  items: myItems),
-              // SizedBox(
-              //   height: 5,
-              // ),
+        child: Container(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
+            child: Column(
+              children: [
+                CarouselSlider(
+                    options: CarouselOptions(
+                        autoPlay: true,
+                        height: 190,
+                        // autoPlayCurve: Curve.fastOutSlowIn,
+                        autoPlayAnimationDuration: Duration(milliseconds: 800),
+                        autoPlayInterval: const Duration(seconds: 2),
+                        enlargeCenterPage: true,
+                        aspectRatio: 2.0,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            myCurrentIndex = index;
+                          });
+                        }),
+                    items: myItems),
+                // SizedBox(
+                //   height: 5,
+                // ),
 
-              Column(
-                children: [
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    child: Text(
-                      "Our Services",
-                      // textAlign: TextAlign.left,
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 10, 112, 180),
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
+                Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      margin:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      child: Text(
+                        "Our Services",
+                        // textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 10, 112, 180),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      // const Divider(),
                     ),
-                    // const Divider(),
-                  ),
-                ],
-              ),
-              ServiesType(),
-            ],
+                  ],
+                ),
+                Categories(
+                  Cname: "yusra badran",
+                  Cprice: "\$ 200",
+                  CassetPath: "assets/images/testS.png",
+                ),
+                // ServiesType(),
+                Servicemap(
+                  label: "Maintenance",
+                  label2: "Centers",
+                  image: "assets/images/mapLogo.png",
+                  onPress: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Mcenters()));
+                  },
+                ),
+                Servicemap(
+                  label: "Spare Parts",
+                  label2: "Centers",
+                  image: "assets/images/mapLogo.png",
+                  onPress: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Scenters()));
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

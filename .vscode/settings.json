@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/QuickFix/QuickFixMobileApp/quickfix/linux"
+    "cmake.sourceDirectory": "D:/QuickFix/QuickFixMobileApp/quickfix/linux",
+    "workbench.editor.pinnedTabsOnSeparateRow": true
 }

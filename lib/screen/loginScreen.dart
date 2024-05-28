@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:quickfix/controller/login_controller.dart';
 import 'package:quickfix/screen/homeScreen.dart';
 import 'package:quickfix/screen/signUpScreen.dart';
 import 'package:quickfix/widget/button1.dart';
@@ -7,6 +9,7 @@ import 'package:quickfix/widget/inputfile.dart';
 
 // class LoginPage extends StatefulWidget {
 class LoginPage extends StatelessWidget {
+  LoginController loginController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,11 +62,13 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       Inputfile(
+                        controller: loginController.userNameEmailController,
                         label: "UserName Or Email",
                         hintText: "Enter your UserName Or Email",
                         icon: Icons.person,
                       ),
                       Inputfile(
+                        controller: loginController.passwordController,
                         label: "Password",
                         hintText: "Enter your Password",
                         icon: Icons.password,
@@ -88,6 +93,7 @@ class LoginPage extends StatelessWidget {
                     child: Button1(
                       title: "Login",
                       onPress: () {
+                        // loginController.onSubmit();
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Homescreen()),

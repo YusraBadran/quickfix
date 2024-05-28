@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Inputfile extends StatelessWidget {
   const Inputfile({
     Key? key,
+    required this.controller,
     required this.label,
     required this.hintText,
     required this.icon,
@@ -11,7 +12,7 @@ class Inputfile extends StatelessWidget {
   final String label;
   final String hintText;
   final IconData icon;
-
+  final TextEditingController controller;
   final bool obscureText;
 
   @override
@@ -22,6 +23,7 @@ class Inputfile extends StatelessWidget {
         children: <Widget>[
           TextFormField(
             style: TextStyle(fontSize: 10),
+            controller: controller,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
               labelText: label,
