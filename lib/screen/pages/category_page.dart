@@ -43,11 +43,9 @@ class CategoryPage extends StatelessWidget {
                                 label: controller.categories![index].name,
                                 image: controller.categories![index].logo,
                                 onPress: () {
-                                  if (controller.categories![index]
-                                              .subCategoryId ==
-                                          null &&
-                                      controller.categories![index].serviceId ==
-                                          null) {
+                                  if (controller
+                                          .categories![index].subCategoryId ==
+                                      null) {
                                     controller.onGetNextCategories(
                                         controller.categories![index].id);
                                   }
