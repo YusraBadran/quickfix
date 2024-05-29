@@ -14,7 +14,7 @@ class splashScreen extends StatefulWidget {
 class _splashScreenState extends State<splashScreen> {
   @override
   void initState() {
-    Storage().initHive();
+    // Storage().initHive();
     // TODO: implement initState
     super.initState();
     Timer(
