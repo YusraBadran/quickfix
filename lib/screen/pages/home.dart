@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:quickfix/screen/MCenters.dart';
-import 'package:quickfix/screen/SCenters.dart';
-import 'package:quickfix/screen/detailsScreen.dart';
+import 'package:get/get.dart';
+import 'package:quickfix/controller/home_controler.dart';
+import 'package:quickfix/screen/pages/category_page.dart';
 import 'package:quickfix/widget/categories.dart';
-import 'package:quickfix/widget/serviceMap.dart';
 import 'package:quickfix/widget/serviesType.dart';
 
 class Home extends StatefulWidget {
@@ -20,20 +19,12 @@ class _HomeState extends State<Home> {
       borderRadius: BorderRadius.circular(30.0),
       child: Image.asset("assets/images/autoImage1.JPG"),
     ),
-    // ClipRRect(
-    //   borderRadius: BorderRadius.circular(30.0),
-    //   child: Image.asset("assets/images/autoImage3.JPG"),
-    // ),
     ClipRRect(
       borderRadius: BorderRadius.circular(30.0),
       child: Image.asset("assets/images/autoImage2.JPG"),
     ),
-    // ClipRRect(
-    //   borderRadius: BorderRadius.circular(30.0),
-    //   child: Image.asset("assets/images/autoImage4.JPG"),
-    // ),
   ];
-
+  HomeController controller = HomeController();
   int myCurrentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -56,6 +47,8 @@ class _HomeState extends State<Home> {
           child: Padding(
             padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CarouselSlider(
                     options: CarouselOptions(
@@ -90,29 +83,37 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                Categories(
-                  Cname: "yusra badran",
-                  Cprice: "\$ 200",
-                  CassetPath: "assets/images/testS.png",
-                ),
-                ServiesType(),
-                Servicemap(
-                  label: "Maintenance",
-                  label2: "Centers",
-                  image: "assets/images/mapLogo.png",
-                  onPress: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Mcenters()));
-                  },
-                ),
-                Servicemap(
-                  label: "Spare Parts",
-                  label2: "Centers",
-                  image: "assets/images/mapLogo.png",
-                  onPress: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Scenters()));
-                  },
+                SizedBox(
+                  child: GetBuilder<HomeController>(
+                    init: controller,
+                    id: 'services',
+                    builder: (controller) {
+                      return Wrap(
+                          direction: Axis.horizontal,
+                          children: controller.services?.length != 0
+                              ? List.generate(
+                                  controller.services?.length ?? 0,
+                                  (index) {
+                                    return ServiesType(
+                                      label: controller.services![index].name,
+                                      image: controller.services![index].logo,
+                                      onPress: () {
+                                        controller.controller.onGetCategories(
+                                            controller.services![index].id);
+                                        ;
+                                        Get.to(CategoryPage());
+                                      },
+                                    );
+                                  },
+                                )
+                              : [
+                                  Container(
+                                    child: Center(
+                                        child: Text("No Services Found")),
+                                  ),
+                                ]);
+                    },
+                  ),
                 ),
               ],
             ),

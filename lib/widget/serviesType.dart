@@ -3,64 +3,61 @@ import 'package:flutter/material.dart';
 import 'package:quickfix/widget/categories.dart';
 
 class ServiesType extends StatelessWidget {
-  const ServiesType({super.key});
+  final String? label;
+  final String? label2;
+  final String? image;
+  final VoidCallback onPress;
+  const ServiesType({
+    super.key,
+    this.label,
+    this.label2,
+    this.image,
+    required this.onPress,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return GestureDetector(
+      onTap: onPress,
       child: Container(
-        child: GridView.count(
-          childAspectRatio: 0.99,
-          crossAxisCount: 2,
-          shrinkWrap: true,
+        padding: EdgeInsets.all(10),
+        width: 130,
+        // margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(255, 10, 112, 180).withOpacity(0.2),
+              spreadRadius: 1,
+              blurRadius: 2,
+            )
+          ],
+        ),
+        child: Column(
           children: [
-            for (int i = 0; i < 2; i++)
-              GestureDetector(
-                // Wrap the Container in a GestureDetector
-
-                child: Container(
-                  padding: EdgeInsets.all(0),
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                  decoration: BoxDecoration(
-                    // color: Color(0xff80C7F7),
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color:
-                            Color.fromARGB(255, 10, 112, 180).withOpacity(0.2),
-                        spreadRadius: 1,
-                        blurRadius: 2,
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: Image.asset(
-                            "assets/images/testS.png",
-                            height: 90,
-                            width: 90,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          "Service Name",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+            Container(
+              child: image == null
+                  ? Image.asset(
+                      "assets/images/testS.png",
+                      height: 90,
+                      width: 90,
+                    )
+                  : Image.network(image!),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              child: Text(
+                label ?? '',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
+            ),
           ],
         ),
       ),

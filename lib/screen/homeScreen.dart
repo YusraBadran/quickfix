@@ -65,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
       case 1:
         widget = const Home();
         break;
-
       default:
         widget = const Shoppingcart();
         break;

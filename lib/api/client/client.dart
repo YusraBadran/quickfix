@@ -25,7 +25,8 @@ class Client {
           headerType == HeaderTypes.authorizationContent)
         'Content-Type': 'application/json',
       if (headerType == HeaderTypes.authorizationContent)
-        'Authorization': 'Bearer ',
+        'Authorization':
+            'Bearer ${Storage().readFromUserBox(LocalStorageKeys.token.name)}',
     };
     return header;
   }

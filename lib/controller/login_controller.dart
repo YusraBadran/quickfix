@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import 'package:quickfix/api/api_urls.dart';
 import 'package:quickfix/api/client/client.dart';
 import 'package:quickfix/api/request_model.dart';
+import 'package:quickfix/core/storage/storage.dart';
+import 'package:quickfix/screen/homeScreen.dart';
 
 class LoginController extends GetxController {
   final TextEditingController userNameEmailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
+  final RxBool submit = false.obs;
   onSubmit() async {
     var response = await Client.callApi(
       apiUrl: ApiUrls.loginApiUrl,
@@ -19,14 +21,17 @@ class LoginController extends GetxController {
       },
     );
     response.fold((error) {
-      print(error);
-      print(error.response);
-      print(error.response['data']);
-      Get.snackbar("Error", error.response['data']['message']);
+      print(error.response.data);
+      Get.snackbar("Error", error.response.data['detail'],
+          snackPosition: SnackPosition.BOTTOM);
     }, (success) {
-      print(success.data);
       dynamic data = success.data['data'];
+      Storage().writeToUserBox(
+        LocalStorageKeys.token.name,
+        data["accessToken"],
+      );
       print(data);
+      Get.to(HomeScreen());
     });
   }
 }

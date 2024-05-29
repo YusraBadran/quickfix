@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:quickfix/core/storage/storage.dart';
 import 'package:quickfix/screen/welcomescreen.dart';
 
 class splashScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class splashScreen extends StatefulWidget {
 class _splashScreenState extends State<splashScreen> {
   @override
   void initState() {
+    Storage().initHive();
     // TODO: implement initState
     super.initState();
     Timer(

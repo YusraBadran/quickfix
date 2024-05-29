@@ -93,11 +93,7 @@ class LoginPage extends StatelessWidget {
                     child: Button1(
                       title: "Login",
                       onPress: () {
-                        // loginController.onSubmit();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
-                        );
+                        loginController.onSubmit();
                       },
                     ),
                   ),
