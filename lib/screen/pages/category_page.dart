@@ -1,12 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:quickfix/controller/categories_controller.dart';
+import 'package:quickfix/controller/category_item_controller.dart';
+import 'package:quickfix/screen/categoriesItemScreen.dart';
 import 'package:quickfix/widget/categories.dart';
 import 'package:quickfix/widget/serviesType.dart';
 
-class CategoryPage extends StatelessWidget {
+class CategoryPage extends StatefulWidget {
   CategoryPage({super.key});
+
+  @override
+  State<CategoryPage> createState() => _CategoryPageState();
+}
+
+class _CategoryPageState extends State<CategoryPage> {
+  final CategoriesController controller = Get.find<CategoriesController>();
+  final CategoryItemController controllerItem =
+      Get.put(CategoryItemController());
+
+  @override
+  void dispose() {
+// if subCategoryId is not null then get out of the page
+    if (controller.categories![0].subCategoryId != null) {
+      controller
+          .onGetPreviousCategories(controller.categories![0].subCategoryId!);
+    }
+    // if serviceId is not null then get out of the page
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +75,9 @@ class CategoryPage extends StatelessWidget {
                                   if (controller
                                           .categories![index].hasCategoryItem ==
                                       true) {
-                                    // controller.onGetCategories(controller
-                                    //     .categories![index].serviceId!);
+                                    controllerItem.onGetCategoriesItem(
+                                        controller.categories![index].id);
+                                    Get.to(CategoriesItemScreen());
                                   }
                                 },
                               );

@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class cartItem extends StatelessWidget {
+class cartItem extends StatefulWidget {
   const cartItem({super.key});
 
+  @override
+  State<cartItem> createState() => _cartItemState();
+}
+
+class _cartItemState extends State<cartItem> {
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -1,87 +1,69 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quickfix/api/api_urls.dart';
 import 'package:quickfix/screen/detailsScreen.dart';
 
-class Categoriesitem extends StatelessWidget {
-  const Categoriesitem({this.UassetPath, this.Uname, this.Uprice});
+class Categoriesitem extends StatefulWidget {
+  const Categoriesitem(
+      {this.UassetPath, this.Uname, this.Uprice, this.onPressed});
   final UassetPath, Uname, Uprice;
+  final VoidCallback? onPressed;
 
   @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        child: GridView.count(
-          childAspectRatio: 0.99,
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          children: [
-            for (int i = 0; i < 2; i++)
-              GestureDetector(
-                // Wrap the Container in a GestureDetector
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Detailsscreen()));
-                  // builder: (context) => Detailsscreen(
-                  // DassetPath:
-                  // Dname: Uname,
-                  // Dprice: Uprice,
-                  //     )));
-                },
+  State<Categoriesitem> createState() => _CategoriesitemState();
+}
 
-                child: Container(
-                  padding: EdgeInsets.all(0),
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                  decoration: BoxDecoration(
-                    // color: Color(0xff80C7F7),
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color:
-                            Color.fromARGB(255, 10, 112, 180).withOpacity(0.2),
-                        spreadRadius: 1,
-                        blurRadius: 1,
+class _CategoriesitemState extends State<Categoriesitem> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      // Wrap the Container in a GestureDetector
+      onTap: widget.onPressed ?? () => {},
+      child: Container(
+        padding: EdgeInsets.all(10),
+        width: 150,
+        decoration: BoxDecoration(
+          // color: Color(0xff80C7F7),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(255, 10, 112, 180).withOpacity(0.2),
+              spreadRadius: 1,
+              blurRadius: 1,
+            )
+          ],
+        ),
+        child: Column(
+          children: [
+            Container(
+                child: widget.UassetPath == null
+                    ? Image.asset(
+                        "assets/images/testS.png",
+                        height: 50,
+                        width: 90,
                       )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: Image.asset(
-                            UassetPath,
-                            // "assets/images/testS.png",
-                            height: 90,
-                            width: 90,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          Uname,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          Uprice,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    : Image.network(ApiUrls.baseImageUrl + widget.UassetPath)),
+            Container(
+              child: Text(
+                widget.Uname,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
+            ),
+            Container(
+              child: Text(
+                widget.Uprice,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
           ],
         ),
       ),

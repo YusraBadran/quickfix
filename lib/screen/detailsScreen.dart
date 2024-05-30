@@ -1,11 +1,25 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quickfix/controller/card_controller.dart';
+import 'package:quickfix/controller/detail_category_item_controller.dart';
+import 'package:quickfix/models/category_item.dart';
+import 'package:quickfix/models/order.dart';
 import 'package:quickfix/widget/button1.dart';
 
-class Detailsscreen extends StatelessWidget {
-  const Detailsscreen({this.DassetPath, this.Dname, this.Dprice});
-  final DassetPath, Dname, Dprice;
+class DetailsScreen extends StatefulWidget {
+  // const Detailsscreen({this.DassetPath, this.Dname, this.Dprice});
+  const DetailsScreen({super.key});
 
+  @override
+  State<DetailsScreen> createState() => _DetailsScreenState();
+}
+
+class _DetailsScreenState extends State<DetailsScreen> {
+  // final DassetPath, Dname, Dprice;
+  final CategoryItemDetailController controllerDetail =
+      Get.find<CategoryItemDetailController>();
+  final CardController cardController = Get.put(CardController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,32 +42,18 @@ class Detailsscreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: ListView(
         children: [
-          // SizedBox(
-          //   height: 15.0,
-          // ),
-          // Padding(
-          //   padding: EdgeInsets.only(left: 20.0),
-          //   child: Text(
-          //     "Citem",
-          //     style: TextStyle(
-          //         fontSize: 25.0,
-          //         fontWeight: FontWeight.bold,
-          //         color: Colors.black),
-          //   ),
-          // ),
           SizedBox(
             height: 25.0,
           ),
-
           Hero(
-              tag: DassetPath,
-              child: Image.asset(
-                DassetPath,
-                height: 300.0,
-                width: 300.0,
-                fit: BoxFit.contain,
-              )),
-
+            tag: 'DassetPath',
+            child: Image.asset(
+              "assets/images/testS.png",
+              height: 300.0,
+              width: 300.0,
+              fit: BoxFit.contain,
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: const Divider(),
@@ -66,7 +66,7 @@ class Detailsscreen extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width - 50,
                 child: Text(
-                  Dprice,
+                  controllerDetail.categoryItemDetail?.name ?? 'Name',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 25,
@@ -83,7 +83,8 @@ class Detailsscreen extends StatelessWidget {
             child: Container(
               width: MediaQuery.of(context).size.width - 50,
               child: Text(
-                Dname,
+                controllerDetail.categoryItemDetail?.price.toString() ??
+                    'Price',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20, color: Colors.black),
               ),
@@ -96,7 +97,8 @@ class Detailsscreen extends StatelessWidget {
             child: Container(
               width: MediaQuery.of(context).size.width - 50,
               child: Text(
-                'here we go agin here we go agin here we go agin here we go agine here we go agine',
+                controllerDetail.categoryItemDetail?.description ??
+                    'Description',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16.0, color: Colors.grey[500]),
               ),
@@ -112,11 +114,24 @@ class Detailsscreen extends StatelessWidget {
               child: Button1(
                 title: "Add To Card",
                 onPress: () {
-                  // loginController.onSubmit();
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => Homescreen()),
-                  // );
+                  var order = CategoryItem(
+                    id: controllerDetail.categoryItemDetail?.id,
+                    name: controllerDetail.categoryItemDetail?.name,
+                    description:
+                        controllerDetail.categoryItemDetail?.description,
+                    price: controllerDetail.categoryItemDetail?.price,
+                    logo: controllerDetail.categoryItemDetail?.image[0],
+                    status: controllerDetail.categoryItemDetail?.status,
+                    categoryId: controllerDetail.categoryItemDetail?.categoryId,
+                  );
+                  cardController.order?.add(order);
+                  Get.snackbar(
+                    "Success",
+                    "Item Added to Cart",
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.green,
+                    colorText: Colors.white,
+                  );
                 },
               ),
             ),

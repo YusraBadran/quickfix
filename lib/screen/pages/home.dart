@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
+import 'package:quickfix/controller/card_controller.dart';
+import 'package:quickfix/controller/categories_controller.dart';
 import 'package:quickfix/controller/home_controler.dart';
 import 'package:quickfix/screen/pages/category_page.dart';
 import 'package:quickfix/widget/categories.dart';
@@ -25,6 +27,8 @@ class _HomeState extends State<Home> {
     ),
   ];
   HomeController controller = HomeController();
+  CategoriesController categoriesController = Get.put(CategoriesController());
+  final CardController cardController = Get.put(CardController());
   int myCurrentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -98,7 +102,7 @@ class _HomeState extends State<Home> {
                                       label: controller.services![index].name,
                                       image: controller.services![index].logo,
                                       onPress: () {
-                                        controller.controller.onGetCategories(
+                                        categoriesController.onGetCategories(
                                             controller.services![index].id);
                                         ;
                                         Get.to(CategoryPage());

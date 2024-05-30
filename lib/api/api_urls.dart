@@ -10,4 +10,8 @@ class ApiUrls {
   static const String categoryNextApiUrl = "${baseUrl}category/next/v1?Id=";
   static const String categoryPreviousApiUrl =
       "${baseUrl}category/previous/v1?Id=";
+  static const String categoryItemApiUrl =
+      "${baseUrl}category_item/get_by_category_id/v1?Id=";
+  static const String categoryItemDetailApiUrl =
+      "${baseUrl}category_item/get_by_id/v1?Id=";
 }

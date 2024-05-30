@@ -21,7 +21,7 @@ class Categories extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => CategoriesitemScreen()));
+                        builder: (context) => CategoriesItemScreen()));
               },
               child: Container(
                 padding: EdgeInsets.all(0),

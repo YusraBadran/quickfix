@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-// class SignUpPage extends StatefulWidget {
-
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:quickfix/controller/register_controller.dart';
@@ -41,7 +38,7 @@ class SignUpPage extends StatelessWidget {
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
+            children: [
               Column(
                 children: <Widget>[
                   Text(
@@ -64,7 +61,7 @@ class SignUpPage extends StatelessWidget {
                 ],
               ),
               Column(
-                children: <Widget>[
+                children: [
                   Inputfile(
                     controller: registerController.firstNameController,
                     label: "First Name",

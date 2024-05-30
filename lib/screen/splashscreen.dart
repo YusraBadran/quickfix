@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quickfix/core/storage/storage.dart';
+import 'package:quickfix/screen/homeScreen.dart';
+import 'package:quickfix/screen/loginScreen.dart';
+import 'package:quickfix/screen/pages/home.dart';
 
 import 'package:quickfix/screen/welcomescreen.dart';
 
@@ -19,6 +22,7 @@ class _splashScreenState extends State<splashScreen>
   late Animation animation;
 
   void initState() {
+    Storage().initHive();
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -31,8 +35,18 @@ class _splashScreenState extends State<splashScreen>
       }
     });
     animationController.forward();
-    Future.delayed(const Duration(seconds: 2))
-        .then((value) => Get.to(() => Welcomescreen()));
+    Future.delayed(const Duration(seconds: 3), () {
+      if (Storage().readFromUserBox(LocalStorageKeys.isFirstTime.name) ==
+          true) {
+        Get.to(Welcomescreen());
+      } else {
+        if (Storage().readFromUserBox(LocalStorageKeys.token.name) != null) {
+          Get.to(HomeScreen());
+        } else {
+          Get.to(LoginPage());
+        }
+      }
+    });
     super.initState();
   }
 
